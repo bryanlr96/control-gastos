@@ -21,7 +21,7 @@ export type BudgetState = {
     currentCategory: Categoty['id']
 }
 
-const initiaBudget = (): number => {
+const initialBudget = (): number => {
     const localStorageBurget = localStorage.getItem('budget')
     return localStorageBurget ? +localStorageBurget : 0
 }
@@ -32,7 +32,7 @@ const initialExpenses = (): Expense[] => {
 }
 
 export const initialState: BudgetState = {
-    budget: initiaBudget(),
+    budget: initialBudget(),
     modal: false,
     expenses: initialExpenses(),
     editingId: '',
@@ -111,7 +111,8 @@ export const budgetReducer = (
             budget: 0,
             modal: false,
             expenses: [],
-            editingId: ''
+            editingId: '',
+            currentCategory: ''
         }
     }
 
